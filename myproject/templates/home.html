@@ -1,0 +1,32 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Home - My Blog{% endblock %}
+
+{% block content %}
+<h2>All Posts</h2>
+<ul>
+  {% for post in posts %}
+    <li>
+      <strong>{{ post.title }}</strong> - {{ post.content }}
+      <div>
+        <small>Status: {{ post.get_status_display }}</small>
+        {% if post.category %}
+          <small> | Category: {{ post.category.name }}</small>
+        {% endif %}
+        {% with tags=post.tags.all %}
+          {% if tags %}
+            <small> | Tags:
+              {% for tag in tags %}
+                {{ tag.name }}{% if not forloop.last %}, {% endif %}
+              {% endfor %}
+            </small>
+          {% endif %}
+        {% endwith %}
+      </div>
+    </li>
+  {% empty %}
+    <li>No posts yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

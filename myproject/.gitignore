@@ -1,0 +1,27 @@
+# Bytecode / cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Local settings and secrets
+.env
+
+# Logs
+*.log
+
+# SQLite database
+db.sqlite3
+*.sqlite3
+
+# Static & media (collected or uploaded)
+staticfiles/
+media/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
